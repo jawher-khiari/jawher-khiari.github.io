@@ -1,0 +1,110 @@
+/* Google webfonts — must be the first statement in the file. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================ DESIGN TOKENS ============================ */
+:root {
+  --violet-200: #d3ccff; --violet-300: #b9aefe; --violet-400: #9a89ff;
+  --violet-500: #6d5dfc; --violet-600: #5b4bf0; --violet-700: #4a3bd4;
+  --magenta-500: #a855f7;
+
+  --ink-950: #0a0a0f; --ink-900: #0e0e14; --ink-850: #13131b; --ink-800: #181821;
+  --ink-750: #1f1f2a; --ink-700: #272733; --ink-600: #3a3a48; --ink-500: #54545f;
+  --ink-400: #737380; --ink-300: #9a9aa6; --ink-200: #c4c4cd; --ink-100: #e6e6ea;
+  --ink-50: #f4f4f6; --white: #ffffff;
+
+  --green-500: #2dd4a7; --amber-500: #f5b544; --rose-500: #fb7185;
+
+  --accent: var(--violet-500);
+  --accent-strong: var(--violet-400);
+  --accent-soft: rgba(109, 93, 252, 0.14);
+  --accent-soft-2: rgba(109, 93, 252, 0.07);
+  --accent-ring: rgba(109, 93, 252, 0.45);
+  --on-accent: #ffffff;
+  --grad-accent: linear-gradient(120deg, #6d5dfc 0%, #a855f7 100%);
+  --grad-accent-soft: linear-gradient(120deg, rgba(109,93,252,0.16), rgba(168,85,247,0.10));
+
+  --bg: var(--ink-950); --bg-elev: var(--ink-900); --surface: var(--ink-850);
+  --surface-2: var(--ink-800); --surface-card: var(--ink-850); --surface-hover: var(--ink-750);
+  --border: rgba(255, 255, 255, 0.08); --border-strong: rgba(255, 255, 255, 0.15);
+
+  --text-strong: var(--ink-50); --text-body: var(--ink-200);
+  --text-muted: var(--ink-400); --text-faint: var(--ink-500);
+
+  --success: var(--green-500); --warning: var(--amber-500);
+  --wip: var(--amber-500); --danger: var(--rose-500);
+
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --container: 1200px; --navbar-h: 72px;
+  --space-section: clamp(5rem, 11vw, 9rem);
+
+  --radius-md: 14px; --radius-lg: 20px; --radius-xl: 28px; --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.30);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.32);
+  --shadow-md: 0 10px 30px -12px rgba(0,0,0,0.55);
+  --shadow-lg: 0 24px 60px -20px rgba(0,0,0,0.65);
+  --shadow-accent: 0 18px 50px -18px rgba(109,93,252,0.55);
+  --ring-inset: inset 0 1px 0 rgba(255,255,255,0.05);
+
+  --glass-bg: rgba(14,14,20,0.55);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --accent: var(--violet-600);
+  --accent-strong: var(--violet-700);
+  --accent-soft: rgba(91, 75, 240, 0.10);
+  --accent-soft-2: rgba(91, 75, 240, 0.05);
+  --accent-ring: rgba(91, 75, 240, 0.35);
+  --on-accent: #ffffff;
+  --grad-accent: linear-gradient(120deg, #5b4bf0 0%, #9333ea 100%);
+  --grad-accent-soft: linear-gradient(120deg, rgba(91,75,240,0.10), rgba(147,51,234,0.07));
+
+  --bg: #fbfbfd; --bg-elev: #ffffff; --surface: #f4f4f7; --surface-2: #ececf1;
+  --surface-card: #ffffff; --surface-hover: #f0f0f5;
+  --border: rgba(16,16,28,0.09); --border-strong: rgba(16,16,28,0.17);
+
+  --text-strong: #101019; --text-body: #3a3a46; --text-muted: #6b6b78; --text-faint: #9a9aa6;
+
+  --success: #119d78; --warning: #c98410; --wip: #c98410; --danger: #e2485f;
+
+  --shadow-xs: 0 1px 2px rgba(16,16,28,0.05);
+  --shadow-sm: 0 2px 10px rgba(16,16,28,0.06);
+  --shadow-md: 0 12px 32px -14px rgba(16,16,28,0.16);
+  --shadow-lg: 0 26px 64px -24px rgba(16,16,28,0.20);
+  --shadow-accent: 0 20px 50px -20px rgba(91,75,240,0.35);
+  --ring-inset: inset 0 1px 0 rgba(255,255,255,0.7);
+  --glass-bg: rgba(255,255,255,0.65);
+
+  color-scheme: light;
+}
+
+/* ============================ BASE GLOBALS ============================ */
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: var(--accent-soft); color: var(--text-strong); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
