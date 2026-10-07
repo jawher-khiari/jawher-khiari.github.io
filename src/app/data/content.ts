@@ -6,7 +6,7 @@ export interface ExperienceItem {
   period: string; current: boolean; context: string; points: string[];
 }
 export interface SkillGroup { name: string; items: string[]; }
-export interface ProjectItem { tag: string; title: string; desc: string; stack: string[]; points: string[]; href?: string; }
+export interface ProjectItem { tag: string; title: string; desc: string; stack: string[]; points: string[]; href?: string; img?: string; }
 export interface UpcomingItem { title: string; desc: string; img?: string; }
 export interface Stat { value: string; label: string; }
 
@@ -260,6 +260,7 @@ export const JK_DATA: Record<Lang, Content> = {
         {
           "tag": "Solo founder",
           "title": "CarSpare",
+          "img": "assets/carspare-brand.png",
           "href": "https://carspare.autos/",
           "desc": "A deployed B2B2C spare-parts marketplace I designed and built alone, spanning buyer, seller and admin portals.",
           "stack": [
@@ -644,6 +645,7 @@ export const JK_DATA: Record<Lang, Content> = {
         {
           "tag": "Fondateur solo",
           "title": "CarSpare",
+          "img": "assets/carspare-brand.png",
           "href": "https://carspare.autos/",
           "desc": "Marketplace B2B2C de pièces automobiles déployée, conçue et développée seul, avec portails acheteur, vendeur et administrateur.",
           "stack": [
