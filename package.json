@@ -1,7 +1,7 @@
 {
   "name": "jawher-khiari-portfolio",
   "version": "1.0.0",
-  "scripts": { "ng": "ng", "start": "ng serve", "build": "ng build" },
+  "scripts": { "ng": "ng", "start": "ng serve", "build": "ng build", "check": "node scripts/check-portfolio.cjs" },
   "private": true,
   "dependencies": {
     "@angular/common": "^18.2.0",

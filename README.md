@@ -8,6 +8,7 @@ Production Angular rebuild of the approved design system. Single-page, bilingual
 ```bash
 npm install
 npm start          # dev server at http://localhost:4200
+npm run check      # resume links, bilingual coverage, component structure
 npm run build      # production build -> dist/portfolio/browser
 ```
 
@@ -23,10 +24,10 @@ src/
   app/
     core/state.service.ts     theme + language signals (persist to localStorage)
     data/content.ts           all EN/FR copy + contact details
-    shared/                   icon component, section-head, shared class tokens
-    sections/                 navbar, hero, about, experience, skills,
-                              projects, upcoming, contact, footer
-    app.component.ts          shell + scroll-spy
+    shared/                   shared class tokens
+    components/ui/            icon, eyebrow, section-head primitives
+    sections/                 one folder per section, with .ts/.html/.scss
+    shell/                    root component + scroll-spy
 public/
   assets/                     portrait, logo, CV (Jawher-Khiari-CV.pdf)
   projects/                   drop upcoming-project screenshots here
@@ -37,10 +38,13 @@ public/
 All text lives in `src/app/data/content.ts` (English and French side by side).
 Edit there, commit, push — the site rebuilds automatically.
 
-## Add upcoming-project screenshots
-1. Put the image in `public/projects/` (e.g. `dashboard.png`).
-2. In `content.ts`, add `img: 'projects/dashboard.png'` to the matching item in
-   the `upcoming.items` array (in both `en` and `fr`).
+## Resume and project details
+The English and French dictionaries include the Ceel.io and CarSpare experience,
+six projects with expandable technical details, skills, education, security
+training and languages. Elasticsearch search is explicitly in progress.
+The legacy `upcoming` content key now contains qualifications.
+Replace `public/assets/Jawher-Khiari-CV.pdf` with the latest resume to update the
+download. Keep project links and claims aligned with that resume.
 
 ## Deploy
 Push to the `main` branch of a repo named **`jawher-khiari.github.io`**. In the

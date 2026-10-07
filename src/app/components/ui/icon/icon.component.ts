@@ -36,8 +36,8 @@ export const GROUP_ICON: Record<string, string> = {
 @Component({
   selector: 'app-icon',
   standalone: true,
-  template: `<span class="inline-flex" [innerHTML]="svg"></span>`,
-  styles: [':host{display:inline-flex;line-height:0}'],
+  templateUrl: './icon.component.html',
+  styleUrl: './icon.component.scss',
 })
 export class IconComponent implements OnChanges {
   @Input() name = '';
