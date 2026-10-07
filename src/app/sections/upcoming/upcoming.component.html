@@ -1,0 +1,13 @@
+<section id="upcoming" [class]="cx.section">
+  <div [class]="cx.container">
+    <app-section-head [s]="t().upcoming"></app-section-head>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      @for (it of t().upcoming.items; track it.title) {
+        <article [class]="cx.card + ' p-6'">
+          <h3 class="mb-3 font-display text-[1.125rem] font-semibold tracking-tight text-ink">{{ it.title }}</h3>
+          <p class="m-0 text-sm leading-relaxed text-muted">{{ it.desc }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

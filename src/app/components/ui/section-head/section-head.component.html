@@ -1,0 +1,7 @@
+<div class="mb-12 flex flex-col gap-3.5"
+     [class.mx-auto]="center" [class.items-center]="center" [class.text-center]="center"
+     [class.max-w-prose2]="!center">
+  <app-eyebrow [center]="center">{{ s.eyebrow }}</app-eyebrow>
+  <h2 [class]="cx.secTitle"><span [class]="cx.idx">{{ s.index }}</span>{{ s.title }}</h2>
+  @if (s.lead) { <p [class]="cx.secLead">{{ s.lead }}</p> }
+</div>
